@@ -1,0 +1,54 @@
+<div style="padding-bottom:120px">
+  <header>
+    <div class="banner" style='background: #dddddd center center
+      url({{book.image}})'></div>
+  </header>
+  {{#if permission}}
+  <div class='options'>
+    <a href="/books/{{book._id}}/edit">Edit</a>
+    <form method='POST' action="/books/{{book._id}}/delete?_method=DELETE" style="display: inline;">
+      <button type='submit'>Delete</button>
+    </form>
+  </div>
+  {{/if}}
+  <h1 class="mb-1 book-show-title">{{book.name}}</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-10 mx-auto">
+
+        <p class="mb-1">
+          <span class="text-secondary">
+            <i class="fas fa-utensils "></i>
+            類別：
+          </span>
+          {{book.category}}
+        </p>
+
+        <p class="mb-1">
+          <span class="text-secondary">
+            <i class="fas fa-map-marker-alt "></i>
+            作者：
+          </span>
+          {{book.location}}
+          <a href={{book.google_map}} class="text-secondary" target="_blank">
+            <i class="fas fa-location-arrow  fa-xs"></i>
+          </a>
+        </p>
+
+        <p class="mb-1">
+          <span class="text-secondary">
+            <i class="fas fa-mobile-alt "></i>
+            電話：
+          </span>
+          {{book.phone}}
+        </p>
+
+        <p class="mb-5">
+          {{book.description}}
+        </p>
+
+        <img class="rounded mx-auto d-block mb-4 w-100" src={{book.image}} alt={{book.name}} style="max-width: 600px;">
+      </div>
+    </div>
+  </div>
+</div>

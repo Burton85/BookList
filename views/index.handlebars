@@ -1,0 +1,71 @@
+<div class="container mb-5" style="height:1000px;padding-top:120px;padding-bottom:120px">
+  <!-- search bar -->
+  <form action="/" class="d-block">
+    <div class="input-group">
+      <input type="text" name="keywords" class="form-control" placeholder="輸入書名、分類" aria-label="book Name..."
+        aria-describedby="search-button" value={{keywords}}>
+      <div class="input-group-append">
+        <button class="btn btn-major" type="submit" id="search-button">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+    </div>
+    <select class="sort-select custom-select" name='sorts' onchange="this.form.submit()">
+      <option value={{sorts}} disabled selected style="background-color: darkgray;">{{#if sorts}}{{sorts}}
+        {{else}}排序{{/if}}
+      </option>
+      <option value="asc">A-Z</option>
+      <option value="desc">Z-A</option>
+      <option value="rating">評分</option>
+      <option value="author">作者</option>
+    </select>
+  </form>
+  <!--Create new book-->
+  <div class="mt-3" style="position:fixed; right:0%">
+    <button class="btn btn-major " type="button" id="create-button" onclick="javascript:location.href='/new'">
+      <i class="fas fa-plus"></i>
+    </button>
+  </div>
+
+  <!-- book list -->
+  <div class="container mt-5 pb-5">
+    <div class="row pb-5">
+      <div class="col-md-10 col-12 mx-auto pb-5">
+        <div class="row  card-columns  pb-5">
+          {{#each books}}
+          <div class="col-4  md-4">
+            <div class="cont card">
+              <a class='book-card' href="/books/{{this._id}}" class="text-secondary">
+                <img class="card-img-top" src={{this.image}} alt={{this.name}}>
+                <div class="card-body p-3">
+                  <h6 class="card-title mb-1 ">{{this.name}}</h6>
+                  <form method='POST' action="/{{this._id}}/put?_method=PUT" id="form">
+                    <a class="d-inline starLink" href="javascript:;" onclick="document.getElementById('form').submit()">
+                      <i class="far fa-star starA"></i>
+                      <i class="fas fa-star starB "></i>
+                    </a>
+                  </form>
+                  <div style="display:inline-flex; flex-direction:row">
+                    <div class=" book-category mb-1">
+                      <i class="fas fa-book "></i> {{this.category}}
+                    </div>
+                    <div class="book-category mb-1">
+                      <i class="fas fa-user "></i> {{this.author}}
+                    </div>
+                  </div>
+                  <div class="display-block">
+                    <span class="badge badge-pill badge-danger font-weight-normal">
+                      {{this.rating}}
+                      <i class="fas fa-star fa-xs"></i>
+                    </span>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

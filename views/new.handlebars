@@ -1,0 +1,84 @@
+<header>
+  <div class="banner"></div>
+</header>
+<h1 class="mb-1 book-show-title">建立書籍資訊</h1>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-md-10 mx-auto">
+      {{>messages}}
+      <form class='newBook' method='Post' action="/new">
+        <p class="mb-1">
+          <span class="text-secondary">
+            書名：
+          </span>
+          <input type="text" name="name" placeholder="name" value={{Info.name}}>
+        </p>
+        <p class="mb-1">
+          <span class="text-secondary">
+            英文：
+          </span>
+          <input type="text" name="name_en" placeholder="name_en" value={{Info.name_en}}>
+        </p>
+        <p class="mb-1">
+          <span class="text-secondary">
+            評分：
+          </span>
+          <input type="text" name="rating" placeholder="rating" value={{Info.rating}}>
+        </p>
+        <p class="mb-1">
+          <span class="text-secondary">
+            類別：
+          </span>
+          <input type="text" name="category" placeholder="category" value={{Info.category}}>
+        </p>
+
+        <p class="mb-1">
+          <span class="text-secondary">
+            作者：
+          </span>
+          <input type="text" name="author" placeholder="author" style="width: 50vh;" value={{Info.author}}>
+        </p>
+
+        <p class="mb-1">
+          <span class="text-secondary">
+            出版社：
+          </span>
+          <input type="text" name="press" placeholder="press" style="width: 50vh;" value={{Info.press}}>
+        </p>
+
+        <p class="mb-1">
+          <span class="text-secondary">
+            介紹：
+            <input type="text" name="description" placeholder="description" style="width: 50vh;height:20vh"
+              value={{Info.description}}>
+          </span>
+        </p>
+        <p class="mb-1 ">
+          <span class="text-secondary" id="app">
+            照片：
+            <input type=" text" name="image" placeholder="image url" style="width: 50vh;" value={{Info.image}}>
+          </span>
+        </p>
+        <div class="container">
+          <div class="form-group d-flex justify-content-center">
+            <p class="col-4">是否同意公開：</p>
+            <div class="form-check col-4">
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1"
+                  checked="">
+                同意 </label><label class="form-check-label">
+                <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
+                不同意 </label>
+            </div>
+
+            </fiv>
+          </div>
+
+          <button class="btn btn-outline-success edit-btn" type="submit">SAVE</button>
+          <a class="btn btn-outline-secondary edit-btn" href="/">BACK</a>
+      </form>
+    </div>
+  </div>
+</div>
+</div>
